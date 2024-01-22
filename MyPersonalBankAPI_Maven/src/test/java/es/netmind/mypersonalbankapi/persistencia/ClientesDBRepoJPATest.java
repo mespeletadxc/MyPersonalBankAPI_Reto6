@@ -55,7 +55,10 @@ class ClientesDBRepoJPATest {
     }
 
     @Test
-    void getClientById() {
+    void getClientById() throws Exception {
+        Cliente cliemp = repo.getClientById(1);
+        System.out.println("Cliente:"+cliemp);
+        assertNotNull(cliemp);
     }
 
     @Test
