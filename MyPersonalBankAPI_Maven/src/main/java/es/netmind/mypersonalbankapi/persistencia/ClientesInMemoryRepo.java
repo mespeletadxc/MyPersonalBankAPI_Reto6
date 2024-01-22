@@ -15,6 +15,7 @@ import java.util.List;
 
 //@Repository
 @Setter
+//@Repository
 public class ClientesInMemoryRepo implements IClientesRepo {
 
    // private ClientesInMemoryRepo instance;

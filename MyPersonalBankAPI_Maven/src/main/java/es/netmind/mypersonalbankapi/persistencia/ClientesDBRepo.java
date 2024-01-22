@@ -5,6 +5,7 @@ import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
 import es.netmind.mypersonalbankapi.properties.PropertyValues;
 import lombok.Setter;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Setter
+@Repository
 public class ClientesDBRepo implements IClientesRepo {
 
     //private String db_url = null;

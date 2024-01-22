@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-@Repository
+//@Repository
 public class CuentasInMemoryRepo implements ICuentasRepo {
     //private CuentasInMemoryRepo instance;
     private List<Cuenta> cuentas;

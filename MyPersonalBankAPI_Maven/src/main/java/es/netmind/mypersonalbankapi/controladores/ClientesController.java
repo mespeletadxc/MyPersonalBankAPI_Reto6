@@ -13,7 +13,7 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.List;
 @Setter
-//@Service
+@Service
 public class ClientesController implements IClientesController {
 
     @Autowired

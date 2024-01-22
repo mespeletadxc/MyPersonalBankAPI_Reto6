@@ -8,22 +8,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class ServicesConfig {
-    /*@Autowired
-    ICompraRepository compraRepo;*/
-
-    @Autowired
-    private IClientesRepo repoCli;
-
-    @Bean
-    public IClientesController getClienterController() {
-        System.out.println("usando IClientesController...");
-        ClientesController cli = new ClientesController();
-        cli.setClientesRepo(repoCli);
-        return cli;
-    }
-
-
-
-}
+//@Configuration
+//public class ServicesConfig {
+//    /*@Autowired
+//    ICompraRepository compraRepo;*/
+//
+//    @Autowired
+//    private IClientesRepo repoCli;
+//
+//    @Bean
+//    public IClientesController getClienterController() {
+//        System.out.println("usando IClientesController...");
+//        ClientesController cli = new ClientesController();
+//        cli.setClientesRepo(repoCli);
+//        return cli;
+//    }
+//
+//
+//
+//}

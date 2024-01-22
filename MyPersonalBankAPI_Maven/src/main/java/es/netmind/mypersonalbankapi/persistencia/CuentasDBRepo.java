@@ -1,9 +1,11 @@
 package es.netmind.mypersonalbankapi.persistencia;
 
 import es.netmind.mypersonalbankapi.modelos.cuentas.Cuenta;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CuentasDBRepo implements ICuentasRepo{
 
     @Override
