@@ -5,7 +5,6 @@ import es.netmind.mypersonalbankapi.config.SpringConfig;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,10 +13,11 @@ import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.persistence.EntityManagerFactory;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,10 +28,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {SpringConfig.class})
-@ActiveProfiles("default")
+//@ActiveProfiles("default")
+
+
 class ClientesDBRepoTest {
     @Autowired
     private IClientesRepo repo;
+
+
 
     /*@BeforeEach
     void setUp() throws Exception {

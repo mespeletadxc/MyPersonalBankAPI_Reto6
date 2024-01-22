@@ -3,17 +3,18 @@ package es.netmind.mypersonalbankapi.persistencia;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
-import es.netmind.mypersonalbankapi.properties.PropertyValues;
 import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Setter
-@Repository
+//@Repository
 public class ClientesDBRepo implements IClientesRepo {
 
     //private String db_url = null;
@@ -126,11 +127,13 @@ public class ClientesDBRepo implements IClientesRepo {
         return cli;
     }
 
+
     @Override
     public Cliente addClient(Cliente cliente) throws Exception {
         return null;
     }
 
+    @Transactional
     @Override
     public Empresa addClientEmpresa(Empresa cliente) throws Exception {
 

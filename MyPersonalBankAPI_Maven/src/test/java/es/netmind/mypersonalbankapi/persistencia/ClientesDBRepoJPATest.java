@@ -1,0 +1,83 @@
+package es.netmind.mypersonalbankapi.persistencia;
+
+import com.mysql.cj.xdevapi.Client;
+import es.netmind.mypersonalbankapi.config.SpringConfig;
+import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
+import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {SpringConfig.class})
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@EnableAutoConfiguration
+class ClientesDBRepoJPATest {
+
+    @Autowired
+    private IClientesRepo repo;
+
+    @Autowired
+    EntityManagerFactory emf;
+
+    private EntityManager em;
+
+
+    @BeforeEach
+    void before() {
+        em = emf.createEntityManager();
+    }
+
+
+    @Test
+    void getAll() {
+    }
+
+    @Test
+    void getClientById() {
+    }
+
+    @Test
+    void addClient() {
+    }
+
+    @Test
+    void addClientEmpresa() throws Exception {
+        Empresa cliemp = new Empresa(null, "Servicios Informatico SL", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
+        repo.addClientEmpresa(cliemp);
+        assertNotNull(cliemp);
+        assertTrue(cliemp.getId() > 0);
+
+        Empresa ccliemp = em.find(Empresa.class, cliemp.getId());
+        assertNotNull(ccliemp);
+        assertEquals(ccliemp.getId(), cliemp.getId());
+
+    }
+
+    @Test
+    void addClientPersonal() {
+    }
+
+    @Test
+    void deleteClient() {
+    }
+
+    @Test
+    void updateClient() {
+    }
+
+    @Test
+    void setEm() {
+    }
+}
