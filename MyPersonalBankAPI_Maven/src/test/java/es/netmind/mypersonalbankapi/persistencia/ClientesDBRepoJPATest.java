@@ -3,6 +3,7 @@ package es.netmind.mypersonalbankapi.persistencia;
 import com.mysql.cj.xdevapi.Client;
 import es.netmind.mypersonalbankapi.config.SpringConfig;
 import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
+import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -66,7 +67,18 @@ class ClientesDBRepoJPATest {
     }
 
     @Test
-    void addClientPersonal() {
+    void addClientPersonal() throws Exception {
+
+        Personal cliper = new Personal(null, "Juan Juanez", "jj@j.com", "Calle JJ 1", LocalDate.now(), true, false, "12345678J");
+
+        repo.addClientPersonal(cliper);
+        assertNotNull(cliper);
+        assertTrue(cliper.getId() > 0);
+
+        Personal ccliper = em.find(Personal.class, cliper.getId());
+        assertNotNull(ccliper);
+        assertEquals(ccliper.getId(), cliper.getId());
+
     }
 
     @Test
