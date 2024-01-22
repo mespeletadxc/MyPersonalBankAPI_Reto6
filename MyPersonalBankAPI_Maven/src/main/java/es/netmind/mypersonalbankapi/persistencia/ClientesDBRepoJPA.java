@@ -57,7 +57,12 @@ public class ClientesDBRepoJPA implements IClientesRepo {
     }
 
     @Override
-    public Cliente updateClient(Cliente cliente) throws Exception {
-        return null;
+    @Transactional
+    public Cliente updateClient(Cliente cliente) {
+        Cliente cli = em.find(Cliente.class, cliente.getId());
+
+        cli.setNombre(cliente.getNombre());
+        //cli.setEstudiantes(escuela.getEstudiantes());
+        return cli;
     }
 }
