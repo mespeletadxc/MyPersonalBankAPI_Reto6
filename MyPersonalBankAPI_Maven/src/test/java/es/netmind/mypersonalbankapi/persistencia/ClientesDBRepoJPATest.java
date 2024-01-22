@@ -100,14 +100,14 @@ class ClientesDBRepoJPATest {
 
 
     @Test
-    @Transactional
+    //@Transactional
     void updateClient() throws Exception {
         Cliente cliToChange = repo.getClientById(1);
         //Cliente cliToChange = em.find(Cliente.class, repo.getClientById(1));
         System.out.println("cliToChange:"+cliToChange.toString());
-        /*Cliente cli = new Empresa(cliToChange.getId(), "Nuevo cliente", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
-        */
-        Cliente cli = new Empresa(1, "Nuevo cliente", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
+        Cliente cli = new Empresa(cliToChange.getId(), "Nuevo cliente 1", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
+
+        //Cliente cli = new Empresa(1, "Nuevo cliente", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
 
 
         Cliente cliC = repo.updateClient(cli);
