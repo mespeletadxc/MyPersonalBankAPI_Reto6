@@ -13,7 +13,7 @@ public interface IClientesController {
 
     void evaluarPrestamo(Integer uid, Double cantidad);
 
-    void setClientesRepo(es.netmind.mypersonalbankapi.persistencia.IClientesRepo clientesRepo);
+    //void setClientesRepo(es.netmind.mypersonalbankapi.persistencia.IClientesRepo clientesRepo);
 
     void setCuentasRepo(es.netmind.mypersonalbankapi.persistencia.ICuentasRepo cuentasRepo);
 

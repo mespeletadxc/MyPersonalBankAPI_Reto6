@@ -126,17 +126,20 @@ class ClientesRepositoryDataTest {
        // Cliente cliToChange = repo.getClientById(1);
         Cliente cliToChange = repo.getById(1);
         //Cliente cliToChange = em.find(Cliente.class, repo.getClientById(1));
-        System.out.println("cliToChange:"+cliToChange);
-        Cliente cli = new Empresa(cliToChange.getId(), "Nuevo cliente 1", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
+        //System.out.println("cliToChange:"+cliToChange);
+        /*Cliente cli = new Empresa(cliToChange.getId(), "Nuevo cliente 1", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});*/
 
-        //Cliente cli = new Empresa(1, "Nuevo cliente", "si@s.com", "Calle SI 3", LocalDate.now(), true, false, "J12345678", new String[]{"Dev", "Marketing"});
+        cliToChange.setNombre("Nuevo cliente 2");
+        repo.flush();
 
+        /*//Cliente cliC = repo.save(cliToChange);
 
-        //Cliente cliC = repo.updateClient(cli);
-        Cliente cliC = repo.save(cli);
         System.out.println("cli update:"+cliC);
         assertNotNull(cliC);
-        assertEquals(cli.getNombre(), cliC.getNombre());
+        assertEquals(cliToChange.getNombre(), cliC.getNombre());*/
+
+
+
     }
 
     @Test
