@@ -49,7 +49,7 @@ public class ClientesDBRepoJPA implements IClientesRepo {
     }
 
     @Override
-    //@Transactional
+    @Transactional
     public Personal addClientPersonal(Personal cliente) {
         em.persist(cliente);
         return cliente;

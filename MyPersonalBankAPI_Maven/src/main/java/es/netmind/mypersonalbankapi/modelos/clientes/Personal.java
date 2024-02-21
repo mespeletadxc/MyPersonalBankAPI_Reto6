@@ -3,6 +3,8 @@ package es.netmind.mypersonalbankapi.modelos.clientes;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Getter
@@ -12,6 +14,8 @@ import java.time.LocalDate;
 @ToString
 @Entity
 public class Personal extends Cliente {
+    @NotBlank
+    @Size(min = 9, max = 9)
     private String dni;
 
     public Personal(Integer id, String nombre, String email, String direccion, LocalDate alta, boolean activo, boolean moroso, String dni) throws Exception{
