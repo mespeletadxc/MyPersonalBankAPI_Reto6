@@ -72,15 +72,15 @@ public class ClientesControllerAPI {
 //        return ResponseEntity.noContent().build();
 //    }
 //
-//    //    @RequestMapping(value = "/{pid}", method = RequestMethod.PUT)
-//    @PutMapping(value = "/{pid}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-//    public ResponseEntity<Object> update(@PathVariable("pid") @Min(1) Long id, @RequestBody Product product) {
-//        if (id == product.getId()) {
-//            return new ResponseEntity<>(repo.save(product), HttpStatus.ACCEPTED);
-//        } else {
-//            return new ResponseEntity<>(new StatusMessage(HttpStatus.PRECONDITION_FAILED.value(), "Id y produt.id deben cohincidir"), HttpStatus.PRECONDITION_FAILED);
-//        }
-//    }
+
+    @PutMapping(value = "/{pid}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<Object> update(@PathVariable("pid") @Min(1) Integer id, @RequestBody Personal cliente) {
+        if (id == cliente.getId()) {
+            return new ResponseEntity<>(repo.updateClient(cliente), HttpStatus.ACCEPTED);
+        } else {
+            return new ResponseEntity<>(new StatusMessage(HttpStatus.PRECONDITION_FAILED.value(), "Id y cliente.id deben coincidir"), HttpStatus.PRECONDITION_FAILED);
+        }
+    }
 //
 //    @PostMapping(value = "/duplicarProducto/{pid}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 //    public ResponseEntity<Product> duplicate(@PathVariable @Min(1) Long pid) {
