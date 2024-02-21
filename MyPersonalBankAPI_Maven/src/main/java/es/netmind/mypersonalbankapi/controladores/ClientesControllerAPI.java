@@ -8,6 +8,7 @@ import es.netmind.mypersonalbankapi.modelos.StatusMessage;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
 import es.netmind.mypersonalbankapi.persistencia.ClientesDBRepoJPA;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 
@@ -49,27 +51,20 @@ public class ClientesControllerAPI {
         newClient.setId(null);
         return new ResponseEntity<>(repo.addClientPersonal(newClient), HttpStatus.CREATED);
     }
-//@PostMapping(value = "", consumes = {MediaType.APPLICATION_JSON_VALUE},
-//            produces = {MediaType.APPLICATION_JSON_VALUE})
-//    public ResponseEntity<Cliente> save(@RequestBody @Valid Cliente newClient) {
-//        logger.info("newClient:" + newClient);
-//        newClient.setId(null);
-//        return new ResponseEntity<>(repo.addClient(newClient), HttpStatus.CREATED);
-//    }
-    //
-//    @Operation(summary = "Get a product by id", description = "Returns a product as per the id")
+
+    //    @Operation(summary = "Get a product by id", description = "Returns a product as per the id")
 //    @ApiResponses(value = {
 //            @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
 //            @ApiResponse(responseCode = "404", description = "Not found - The product was not found")
 //    })
-//    @RequestMapping(value = "/{pid}", method = RequestMethod.GET,
-//            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-//    public Product getOne(
-//            @Parameter(name = "id", description = "Product id", example = "1", required = true)
-//            @PathVariable("pid") @Min(1) Long id
-//    ) {
-//        return repo.findById(id).get();
-//    }
+    @RequestMapping(value = "/{pid}", method = RequestMethod.GET,
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public Cliente getOne(
+            @Parameter(name = "id", description = "Client id", example = "1", required = true)
+            @PathVariable("pid") @Min(1) Integer id
+    ) {
+        return repo.getClientById(id);
+    }
 //
 //    @RequestMapping(value = "/{pid}", method = RequestMethod.DELETE)
 //    public ResponseEntity delete(@PathVariable("pid") @Min(1) Long id) {

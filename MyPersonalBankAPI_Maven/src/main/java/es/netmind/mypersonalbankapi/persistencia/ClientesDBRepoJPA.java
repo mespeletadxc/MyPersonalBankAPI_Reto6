@@ -27,7 +27,7 @@ public class ClientesDBRepoJPA implements IClientesRepo {
     }
 
     @Override
-        public Cliente getClientById(Integer id) throws Exception {
+        public Cliente getClientById(Integer id) {
         return em.find(Cliente.class, id);
     }
 
