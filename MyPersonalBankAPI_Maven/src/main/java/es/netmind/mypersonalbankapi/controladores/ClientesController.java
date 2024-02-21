@@ -5,9 +5,13 @@ import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.prestamos.Prestamo;
 import es.netmind.mypersonalbankapi.persistencia.*;
 import es.netmind.mypersonalbankapi.utils.ClientesUtils;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
 import java.time.DateTimeException;
@@ -15,6 +19,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/products")
+@Validated
+@Tag(name = "Products API", description = "Products management APIs")
 @Setter
 @Service
 public class ClientesController implements IClientesController {

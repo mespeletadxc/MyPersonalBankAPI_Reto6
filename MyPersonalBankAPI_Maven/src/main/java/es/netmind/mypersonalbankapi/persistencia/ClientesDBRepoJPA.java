@@ -31,21 +31,26 @@ public class ClientesDBRepoJPA implements IClientesRepo {
         return em.find(Cliente.class, id);
     }
 
-    @Override
-    public Cliente addClient(Cliente cliente) throws Exception {
-        return null;
-    }
-
-    @Override
     @Transactional
-    public Empresa addClientEmpresa(Empresa cliente) throws Exception{
+    @Override
+    //public Cliente addClient(Cliente cliente) throws Exception {
+
+    public Cliente addClient(Cliente cliente) {
+        //return null;
         em.persist(cliente);
         return cliente;
     }
 
     @Override
     @Transactional
-    public Personal addClientPersonal(Personal cliente) throws Exception{
+    public Empresa addClientEmpresa(Empresa cliente) {
+        em.persist(cliente);
+        return cliente;
+    }
+
+    @Override
+    //@Transactional
+    public Personal addClientPersonal(Personal cliente) {
         em.persist(cliente);
         return cliente;
     }

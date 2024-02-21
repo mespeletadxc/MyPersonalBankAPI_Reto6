@@ -1,5 +1,6 @@
 package es.netmind.mypersonalbankapi.modelos.clientes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.netmind.mypersonalbankapi.modelos.cuentas.Cuenta;
 import es.netmind.mypersonalbankapi.modelos.prestamos.Prestamo;
 import lombok.*;
@@ -25,8 +26,10 @@ public abstract class Cliente {
     private LocalDate alta;
     private boolean activo;
     private boolean moroso;
+    @JsonIgnore
     @Transient
     private List<Cuenta> cuentas;
+    @JsonIgnore
     @Transient
     private List<Prestamo> prestamos;
 
