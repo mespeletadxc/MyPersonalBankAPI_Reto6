@@ -1,25 +1,25 @@
 package es.netmind.mypersonalbankapi.controladores;
 
 
+import es.netmind.mypersonalbankapi.exceptions.ClientNotfoundException;
+import es.netmind.mypersonalbankapi.exceptions.ClienteException;
+import es.netmind.mypersonalbankapi.exceptions.ErrorCode;
+import es.netmind.mypersonalbankapi.modelos.StatusMessage;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
 import es.netmind.mypersonalbankapi.persistencia.ClientesDBRepoJPA;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import java.util.List;
 
 
@@ -35,16 +35,13 @@ public class ClientesControllerAPI {
 
     @GetMapping(value = "", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<Cliente>> getAll() {
-        return new ResponseEntity<>(repo.getAll(), HttpStatus.OK);
+        if (repo.getAll().size() > 0) {
+            return new ResponseEntity<>(repo.getAll(), HttpStatus.OK);
+        } else {
+            throw new ClientNotfoundException("La lista de clientes está vacía");
+        }
     }
 
-    /*@RequestMapping(value = "", method = RequestMethod.POST)
-    public Product save(@RequestBody Product newProduct) {
-        logger.info("newProduct:" + newProduct);
-        return repo.save(newProduct);
-    }*/
-
-    //    @RequestMapping(value = "", method = RequestMethod.POST)
     @PostMapping(value = "", consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Personal> save(@RequestBody @Valid Personal newClient) {
