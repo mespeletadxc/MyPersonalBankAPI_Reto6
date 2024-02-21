@@ -1,7 +1,7 @@
 
 package es.netmind.mypersonalbankapi.persistencia;
 
-import es.netmind.mypersonalbankapi.config.SpringConfig;
+//import es.netmind.mypersonalbankapi.config.SpringConfigOLD;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
@@ -13,11 +13,9 @@ import static org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import javax.persistence.EntityManagerFactory;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -27,7 +25,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {SpringConfig.class})
+//@ContextConfiguration(classes = {SpringConfigOLD.class})
 //@ActiveProfiles("default")
 
 

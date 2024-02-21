@@ -1,11 +1,8 @@
 package es.netmind.mypersonalbankapi.persistencia;
 
-import es.netmind.mypersonalbankapi.config.SpringConfig;
+//import es.netmind.mypersonalbankapi.config.SpringConfigOLD;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
-import es.netmind.mypersonalbankapi.persistencia.*;
-
-import static es.netmind.mypersonalbankapi.persistencia.ClientesInMemoryRepo.*;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +18,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {SpringConfig.class})
+//@ContextConfiguration(classes = {SpringConfigOLD.class})
 @ActiveProfiles("inMemory")
 class ClientesInMemoryRepoTest {
     @Autowired

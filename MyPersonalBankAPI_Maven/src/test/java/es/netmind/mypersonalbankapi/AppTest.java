@@ -1,7 +1,7 @@
 package es.netmind.mypersonalbankapi;
 
 
-import es.netmind.mypersonalbankapi.config.SpringConfig;
+//import es.netmind.mypersonalbankapi.config.SpringConfigOLD;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {SpringConfig.class})
+//@ContextConfiguration(classes = {SpringConfigOLD.class})
 @EnableAutoConfiguration
 public class AppTest {
 

@@ -1,6 +1,6 @@
 package es.netmind.mypersonalbankapi.persistencia;
 
-import es.netmind.mypersonalbankapi.config.SpringConfig;
+//import es.netmind.mypersonalbankapi.config.SpringConfigOLD;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +9,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.jupiter.api.Assertions.*;
+
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {SpringConfig.class})
+//@ContextConfiguration(classes = {SpringConfigOLD.class})
 
 class CuentasRepoTest {
 

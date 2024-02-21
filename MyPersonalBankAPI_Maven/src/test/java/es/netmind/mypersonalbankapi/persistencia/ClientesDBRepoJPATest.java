@@ -1,7 +1,7 @@
 package es.netmind.mypersonalbankapi.persistencia;
 
-import com.mysql.cj.xdevapi.Client;
-import es.netmind.mypersonalbankapi.config.SpringConfig;
+
+//import es.netmind.mypersonalbankapi.config.SpringConfigOLD;
 import es.netmind.mypersonalbankapi.modelos.clientes.Cliente;
 import es.netmind.mypersonalbankapi.modelos.clientes.Empresa;
 import es.netmind.mypersonalbankapi.modelos.clientes.Personal;
@@ -16,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.transaction.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,7 +25,7 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {SpringConfig.class})
+//@ContextConfiguration(classes = {SpringConfigOLD.class})
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnableAutoConfiguration
 class ClientesDBRepoJPATest {
