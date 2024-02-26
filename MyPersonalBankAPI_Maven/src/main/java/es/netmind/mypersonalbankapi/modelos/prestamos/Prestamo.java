@@ -27,8 +27,10 @@ public class Prestamo {
     private Double mensualidad;
     private Integer anios;
     @JsonIgnore
+    @Transient
     private List<Pago> pagos;
     @JsonIgnore
+    @Transient
     private List<Mora> moras;
     private Integer interes;
     private Integer interesMora;

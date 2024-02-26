@@ -43,13 +43,15 @@ public class PrestamosDBRepoJPA implements IPrestamosRepo {
 
     @Override
     public List<Prestamo> getLoansByClient(Integer uid) throws Exception {
-        List<Prestamo> prestamos = +.findByOwnerId(ownerId);
+       // List<Prestamo> prestamos = findByOwnerId(ownerId);
+        return null;
 
     }
 
     @Override
     public Prestamo getLoansByClientAndId(Integer uid, Integer aid) throws Exception {
-        List<Prestamo> accounts = accountRepository.findByOwnerId(ownerId);
+        //List<Prestamo> accounts = accountRepository.findByOwnerId(ownerId);
+        return null;
     }
 
 
