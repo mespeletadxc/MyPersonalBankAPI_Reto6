@@ -28,6 +28,7 @@ public class PrestamosControllerAPI {
     //private IPrestamosRepo repo;
     private PrestamoRepository repo;
 
+    //detalle de un préstamo, en curso añadir relaciones entre Cliente-Lista de préstamos
     @GetMapping(value = "/{pid}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<Prestamo>> getLoansById(
             @Parameter(name = "id", description = "Client id", example = "1", required = true)
