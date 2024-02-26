@@ -1,16 +1,34 @@
 package es.netmind.mypersonalbankapi.modelos.prestamos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Table(name = "prestamoJPA")
 public class Prestamo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDate fechaConcesion;
+    @NotNull
     private Double monto;
     private Double saldo;
     private Double mensualidad;
     private Integer anios;
+    @JsonIgnore
     private List<Pago> pagos;
+    @JsonIgnore
     private List<Mora> moras;
     private Integer interes;
     private Integer interesMora;
