@@ -4,6 +4,7 @@ package es.netmind.mypersonalbankapi.config;
 
 import es.netmind.mypersonalbankapi.exceptions.ClientNotfoundException;
 import es.netmind.mypersonalbankapi.exceptions.ClienteException;
+import es.netmind.mypersonalbankapi.exceptions.GlobalException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -18,6 +19,10 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class ConfigExceptionController {
+    @ExceptionHandler(value = GlobalException.class)
+    public ResponseEntity<Object> handleGlobalException(GlobalException exception) {
+        return new ResponseEntity<>("Global: "+exception.getMessage(), HttpStatus.BAD_REQUEST);
+    }
     @ExceptionHandler(value = ClienteException.class)
     public ResponseEntity<Object> handleClienteException(ClienteException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
